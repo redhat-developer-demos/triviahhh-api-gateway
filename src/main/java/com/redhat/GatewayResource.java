@@ -46,6 +46,6 @@ public class GatewayResource {
     @GET
     @Path("/quotes/random")
     public Quote message() {
-        return client.get("/quotes/random")
+        return client.get("/quotes/random");
     }
 }
