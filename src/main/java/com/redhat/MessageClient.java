@@ -7,14 +7,15 @@ import javax.ws.rs.Path;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-@Path("/quotes")
 @RegisterRestClient
 public interface MessageClient {
 
+    @Path("/quotes")
     @GET
     List<Quote> get();
 
-    @GET("/random")
+    @GET
+    @Path("/quotes/random")
     Quote getRandom();
     
 }
