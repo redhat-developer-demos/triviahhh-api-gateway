@@ -11,7 +11,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 public interface MessageClient {
 
     @GET
-    @Path("/")
+    @Path("/quotes")
     List<Quote> get();
 
     @GET
