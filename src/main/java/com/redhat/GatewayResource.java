@@ -31,7 +31,7 @@ public class GatewayResource {
     )
     @Fallback(fallbackMethod = "QuotesFallbackMessage")
     public List<Quote> message() {
-        return client.get("/quotes");
+        return client.get();
     }
     private List<Quote> QuotesFallbackMessage() {
         Quote q = new Quote();
