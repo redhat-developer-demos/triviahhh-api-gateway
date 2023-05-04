@@ -15,6 +15,6 @@ public interface MessageClient {
     List<Quote> get();
 
     @GET("/random")
-    Quote get();
+    Quote getRandom();
     
 }
