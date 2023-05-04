@@ -15,3 +15,10 @@ public interface MessageClient {
     List<Quote> get();
     
 }
+
+@Path("quotes/random")
+@RegisterRestClient
+public interface MessageClient {
+    @GET
+    Quote get(/"random");
+}
