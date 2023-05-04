@@ -10,7 +10,6 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 @RegisterRestClient
 public interface MessageClient {
 
-    @Path()
     @GET
     List<Quote> get();
 
