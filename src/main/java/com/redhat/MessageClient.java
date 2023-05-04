@@ -19,6 +19,8 @@ public interface MessageClient {
 @Path("quotes/random")
 @RegisterRestClient
 public interface MessageClient {
-    @GET
-    Quote get(/"random");
+
+    @GET("/random")
+    Quote get();
+
 }
