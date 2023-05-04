@@ -11,10 +11,11 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 public interface MessageClient {
 
     @GET
+    @Path("/")
     List<Quote> get();
 
     @GET
-    @Path("/random")
+    @Path("/quotes/random")
     Quote getRandom();
     
 }
