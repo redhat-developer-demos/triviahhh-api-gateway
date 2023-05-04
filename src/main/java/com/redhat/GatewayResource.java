@@ -15,7 +15,6 @@ import org.eclipse.microprofile.faulttolerance.Timeout;
 
 @Path("/gateway")
 @Produces(MediaType.APPLICATION_JSON)
-@Tag(name = "gateway", description = "API Gateway for Triviahhh")
 public class GatewayResource {
     @RestClient
     MessageClient client;
@@ -45,7 +44,7 @@ public class GatewayResource {
 
     @GET
     @Path("/quotes/random")
-    public Quote message() {
+    public Quote quote() {
         return client.getRandom();
     }
 }
