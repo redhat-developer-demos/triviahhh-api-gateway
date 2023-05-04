@@ -20,7 +20,6 @@ public class GatewayResource {
     MessageClient client;
 
     @GET
-    @Path("/quotes")
     @Timeout(1000)
     @CircuitBreaker
     (
@@ -33,6 +32,7 @@ public class GatewayResource {
     public List<Quote> message() {
         return client.get();
     }
+
     private List<Quote> QuotesFallbackMessage() {
         Quote q = new Quote();
         List<Quote> l = new ArrayList<Quote>();
@@ -40,11 +40,5 @@ public class GatewayResource {
         q.author="CIRCUIT_BREAKER";
         q.quotation="Quotes service is not responding; Circuit Breaker is open.";
         return l;
-    }
-
-    @GET
-    @Path("/quotes/random")
-    public Quote quote() {
-        return client.getRandom();
     }
 }
