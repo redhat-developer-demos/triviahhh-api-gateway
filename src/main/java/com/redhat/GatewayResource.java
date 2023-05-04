@@ -20,6 +20,7 @@ public class GatewayResource {
     MessageClient client;
 
     @GET
+    @Path("/quotes")
     @Timeout(1000)
     @CircuitBreaker
     (
