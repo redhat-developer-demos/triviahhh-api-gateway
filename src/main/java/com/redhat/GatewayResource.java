@@ -13,13 +13,15 @@ import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
 import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.faulttolerance.Timeout;
 
-@Path("/gateway/quotes")
+@Path("/gateway")
 @Produces(MediaType.APPLICATION_JSON)
+@Tag(name = "gateway", description = "API Gateway for Triviahhh")
 public class GatewayResource {
     @RestClient
     MessageClient client;
 
     @GET
+    @Path("/quotes")
     @Timeout(1000)
     @CircuitBreaker
     (
@@ -30,9 +32,8 @@ public class GatewayResource {
     )
     @Fallback(fallbackMethod = "QuotesFallbackMessage")
     public List<Quote> message() {
-        return client.get();
+        return client.get("/quotes");
     }
-
     private List<Quote> QuotesFallbackMessage() {
         Quote q = new Quote();
         List<Quote> l = new ArrayList<Quote>();
@@ -40,5 +41,11 @@ public class GatewayResource {
         q.author="CIRCUIT_BREAKER";
         q.quotation="Quotes service is not responding; Circuit Breaker is open.";
         return l;
+    }
+
+    @GET
+    @Path("/quotes/random")
+    public Quote message() {
+        return client.get("/quotes/random")
     }
 }
