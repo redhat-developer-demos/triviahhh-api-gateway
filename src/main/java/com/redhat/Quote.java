@@ -2,7 +2,7 @@ package com.redhat;
 
 public class Quote {
 
-    public Integer id;
+    public Integer quoteID;
     public String author;
     public String quotation;
 

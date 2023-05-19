@@ -42,4 +42,10 @@ public class GatewayResource {
         q.quotation="Quotes service is not responding; Circuit Breaker is open.";
         return l;
     }
+
+    @GET
+    @Path("/quotes/random")
+    public Quote quote() {
+        return client.getRandom();
+    }
 }
