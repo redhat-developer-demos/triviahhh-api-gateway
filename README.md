@@ -9,3 +9,11 @@ Endpoint | Description
 `gateway/quotes/random` | Returns a random quote
 
 
+## Create it
+
+`oc new-app --image=quay.io/donschenck/triviahhh-api-gateway:latest --name=triviahhh-api-gateway --labels=app.kubernetes.io/part-of=quotesforu,systemname=quotesforu,tier=apigateway,language=quarkus,quotesforu=apigateway`
+
+
+`oc expose service/triviahhh-api-gateway`
+
+
